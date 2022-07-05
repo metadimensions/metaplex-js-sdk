@@ -39,6 +39,15 @@ test('it can update the on-chain data of an nft', async (t: Test) => {
     uri: updatedUri,
     isMutable: false,
   });
+  
+//Presale update on-chain data
+  
+   const { nft: updatedNft } = await mx.nfts().update(nft, {
+    name: 'Updated On-chain Presale NFT name',
+    primarySaleHappened: true,
+    uri: updatedUri,
+    isMutable: false,
+  });
 
   // Then the returned NFT should have the updated data.
   spok(t, updatedNft, {
